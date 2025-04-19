@@ -2,7 +2,7 @@ const chatWindow = document.getElementById('chat-window');
 const form = document.getElementById('chat-form');
 const input = document.getElementById('message-input');
 
-// Замените на адрес своего backend на Render:
+// backend Render:
 const socket = new WebSocket('wss://chat-backend.onrender.com/ws');
 
 socket.addEventListener('message', (event) => {
@@ -21,7 +21,7 @@ form.addEventListener('submit', (e) => {
   if (message !== '') {
     const payload = {
       type: 'message',
-      username: 'Anonymous', // Можешь заменить на имя из формы
+      username: 'Anonymous',
       message: message,
     };
     socket.send(JSON.stringify(payload));
