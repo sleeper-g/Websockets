@@ -1,21 +1,32 @@
 image: Ubuntu2204
 stack: node 20
+
 branches:
   only:
     - master
     - main
-cache: node_modules
+
+cache:
+  - frontend/node_modules
+
 install:
-  - npm install
-build: off
-build_script:
   - cd frontend
   - npm install
+  - cd ..
+
+build: off
+
+build_script:
+  - cd frontend
   - npm run build
+  - cd ..
+
 test_script:
-  - cd frontend 
+  - cd frontend
   - npm run lint && npm run test
-deploy_script:  # скрипт развёртывания
+  - cd ..
+
+deploy_script:
   - git config --global credential.helper store
   - git config --global user.name AppVeyor
   - git config --global user.email ci@appveyor.com
