@@ -3,7 +3,7 @@ const form = document.getElementById('chat-form');
 const input = document.getElementById('message-input');
 
 // backend Render:
-const socket = new WebSocket('wss://chat-backend.onrender.com/ws');
+const socket = new WebSocket('wss://websockets-z18a.onrender.com/ws');
 
 socket.addEventListener('message', (event) => {
   const data = JSON.parse(event.data);
